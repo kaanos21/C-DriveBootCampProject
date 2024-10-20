@@ -1,0 +1,46 @@
+﻿@model List<C_DriveBootCampProject.Entities.Car>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Car List</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">Araba Listesi</h1>
+        <div class="text-right mb-4">
+            <a href="/car/createcar" class="btn btn-success">Yeni Araba Ekle</a>
+        </div>
+        <div class="row">
+            @foreach (var car in Model)
+            {
+                <div class="col-md-4">
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <h5 class="card-title">Marka: @car.Brand</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">Model: @car.ModelName</h6>
+                            <p class="card-text">Yıl: @car.Year</p>
+                            <p class="card-text">Renk: @car.Color</p>
+                            <p class="card-text">Fiyat: @car.Price TL</p>
+                            <div class="d-flex justify-content-between">
+                                <a href="/car/updatecar/@car.CarId" class="btn btn-warning">Güncelle</a>
+                                <a href="/car/CarDetailById/@car.CarId" class="btn btn-info">Detaylar</a>
+                                <a href="/car/DeleteCar/@car.CarId" class="btn btn-danger">Sil</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

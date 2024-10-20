@@ -1,0 +1,36 @@
+﻿@model C_DriveBootCampProject.Entities.Car
+@{
+    Layout = null; // Eğer bir layout kullanmıyorsanız bunu bırakın.
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Araba Detayları</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">Araba Detayları</h1>
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Marka: @Model.Brand</h5>
+                <h6 class="card-subtitle mb-2 text-muted">Model: @Model.ModelName</h6>
+                <p class="card-text">Yıl: @Model.Year</p>
+                <p class="card-text">Renk: @Model.Color</p>
+                <p class="card-text">Fiyat: @Model.Price TL</p>
+                <div class="d-flex justify-content-between">
+                    <a href="/car/updatecar/@Model.CarId" class="btn btn-warning">Güncelle</a>
+                    <a href="/car/carlist" class="btn btn-secondary">Geri Dön</a>
+                    <a href="/car/deletecar/@Model.CarId" class="btn btn-danger">Sil</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
